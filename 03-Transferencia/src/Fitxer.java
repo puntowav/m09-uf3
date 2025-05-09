@@ -1,7 +1,6 @@
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class Fitxer {
     private String nom;
@@ -10,7 +9,7 @@ public class Fitxer {
         this.nom = nom;
     }
     public byte[] getContingut()throws Exception{
-        File file = new File(Client.DIR_ARRIBADA + "/" + nom);
+        File file = new File(Client.DIR_ARRIBADA, nom);
         if (!file.exists()) return null;
 
         Path path = file.toPath();
@@ -21,6 +20,6 @@ public class Fitxer {
         return nom;
     }
     public String getPath(){
-        return new File(Client.DIR_ARRIBADA + "/" + nom).getAbsolutePath();
+        return new File(Client.DIR_ARRIBADA, nom).getAbsolutePath().toString();
     }
 }
